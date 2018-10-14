@@ -272,6 +272,8 @@
 //use Illuminate\Support\Facades\Auth;
 //
 
+use Illuminate\Support\Facades\App;
+
 Auth::routes(['verify'=> true]);
 //
 
@@ -318,3 +320,13 @@ Route::get('/');
 //});
 
 // یک تغییر ایجاد شد
+Route::prefix('fa')->group(function(){
+  App::setLocale('fa');
+//  $locale = App::getLocale();
+//  if(App::isLocale('fa')){
+//    dd('زبان فارسی شد');
+//  }
+  Route::get('message', function(){
+    return view('message');
+  });
+});
